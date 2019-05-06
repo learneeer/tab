@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel='stylesheet' href='style.css'>
 </head>
 
@@ -12,11 +14,38 @@
 <body>
     <header>
 
-        <div class="tab">
-            <button class="links links1" onclick="start_open('our_offer')">Our offer</button>
-            <button class="links links2" onclick="start_open('about_us')">About us</button>
-            <button class="links links3" onclick="start_open('contact')">Contact</button>
+        <div class="el name">
+            <div class="name0 name1">Company Name</div>
+            <div class="name0 name2"><span>short</span> description</div>
         </div>
+
+
+        <div class="el button_area">
+            <i class="fas fa-arrow-down"></i>
+            <button class='my_button' onclick='start_click()'>look at our offer</button>
+            <div></div>
+        </div>
+
+
+        <div class="el burger">
+            <div class='burger1' onclick='start_click()'>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div></div>
+
+
+
+        <div class="tab">
+            <i class="fas fa-arrow-right" onclick='end_click()'></i>
+            <button class="links links1" onclick="start_open('our_offer')">OUR OFFER</button>
+            <button class="links links2" onclick="start_open('about_us')">ABOUT</button>
+            <button class="links links3" onclick="start_open('contact')">CONTACT</button>
+        </div>
+
 
         <div id="our_offer" class="content">
             <h3>OUR OFFER</h3>
@@ -24,7 +53,7 @@
         </div>
 
         <div id="about_us" class="content">
-            <h3>ABOUT US</h3>
+            <h3>ABOUT</h3>
             <p>example text 2</p>
         </div>
 
@@ -32,6 +61,8 @@
             <h3>CONTACT</h3>
             <p>example text 3</p>
         </div>
+
+
 
     </header>
 
