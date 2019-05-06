@@ -1,0 +1,96 @@
+$color_tab: #6297e7;
+$color_hover: #ddd;
+
+$text_basic_color:#ffffff;
+$text_basic_shadow: 0 0 10px #000000,
+0 0 5px #000000,
+0 0 10px #000000;
+$color_content: rgba(#7ab2da, 0.7);
+
+.header-img {
+    background-image: url('img/geometric-1732847_1920.jpg');
+    background-size: cover;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: monospace;
+}
+
+header {
+    @extend .header-img;
+    width: 100vw;
+    height: 100vh;
+}
+
+.tab {
+    overflow: hidden;
+    background-color: $color_tab;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20vw;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+
+    button {
+        background-color: inherit;
+        border: none;
+        cursor: pointer;
+        padding: 14px 10px;
+        transition: 0.3s;
+        font-size: 17px;
+
+        color: $text_basic_color;
+        text-shadow: $text_basic_shadow;
+        border-top: 1.5px solid darkgray;
+        border-bottom: 1.5px solid darkgray;
+        margin-bottom: 5px;
+
+        &.links1 {
+            margin-top: 20px;
+        }
+
+
+        &:hover {
+            color: $color_hover;
+        }
+
+        &.active {
+            color: gray;
+            font-weight: 900;
+            text-shadow: 0 0 5px black, 0 0 5px black;
+        }
+    }
+}
+
+
+.content {
+    position: absolute;
+    height: 100vh;
+    width: 80vw;
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+
+    color: $text_basic_color;
+    text-shadow: $text_basic_shadow;
+    background-color: $color_content;
+
+    h3 {
+        font-size: 30px;
+        margin: 2%;
+    }
+
+    p {
+        font-size: 15px;
+        margin-left: 2%;
+    }
+
+}
