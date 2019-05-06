@@ -12,6 +12,10 @@ $color_content: rgba(#7ab2da, 0.7);
     background-size: cover;
 }
 
+.opacity0 {
+    opacity: 0;
+}
+
 
 * {
     margin: 0;
@@ -21,10 +25,116 @@ $color_content: rgba(#7ab2da, 0.7);
     font-family: monospace;
 }
 
+body {
+    overflow: hidden;
+}
+
 header {
     @extend .header-img;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas:
+        "name name burger"
+        ".  button ."
+        "img img img";
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-rows: 1fr 1fr 30fr;
+
+    .name {
+        grid-area: name;
+        display: grid;
+        justify-content: start;
+        align-content: center;
+
+        padding: 5%;
+        text-shadow: $text_basic_shadow;
+        color: $text_basic_color;
+    }
+
+    .name1 {
+        font-size: 350%;
+        font-weight: bold;
+    }
+
+    .name2 {
+        font-size: 150%;
+    }
+
+    .button_area {
+        grid-area: button;
+        display: grid;
+        grid-template-rows: 60px 1fr 10px;
+        text-align: center;
+        justify-content: center;
+        padding: 1%;
+
+        .fa-arrow-down {
+            transform: translateY(-5%);
+            font-size: 300%;
+            color: yellowgreen;
+            animation: arrow 1.5s 1s infinite linear;
+        }
+
+        .my_button {
+            font-size: 160%;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-style: none;
+            border-radius: 20px;
+            box-shadow: 0 0 0 6px black, 0 0 0 12px yellowgreen;
+            padding: 10px 20px;
+            background-color: yellowgreen;
+            cursor: pointer;
+            margin: 5px;
+
+            &:hover {
+                font-size: 170%;
+            }
+        }
+    }
+
+
+    .burger {
+        grid-area: burger;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .burger1 {
+            max-width: 80px;
+            max-height: 60px;
+
+            width: 13vw;
+            height: 10vw;
+
+            transition: .2s;
+            cursor: pointer;
+
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+
+            &:hover {
+                max-width: 85px;
+                max-height: 65px;
+
+                width: 13.5vw;
+                height: 10.5vw;
+            }
+
+            span {
+                background-color: white;
+                margin: 2px;
+                border: 1px solid black;
+                border-radius: 20%;
+                box-shadow: $text_basic_shadow;
+            }
+        }
+    }
+
+
 }
 
 .tab {
@@ -32,26 +142,42 @@ header {
     background-color: $color_tab;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -300px;
     width: 20vw;
     height: 100vh;
     z-index: 1;
     display: flex;
     flex-direction: column;
 
+    transition: 1s;
+
+    &.active {
+        right: 0;
+    }
+
+    .fa-arrow-right {
+        margin-top: 30px;
+        margin-left: 15px;
+        font-size: 35px;
+        color: white;
+        text-shadow: $text_basic_shadow;
+        cursor: pointer;
+    }
+
     button {
         background-color: inherit;
         border: none;
         cursor: pointer;
-        padding: 14px 10px;
+        padding: 5px 10px;
         transition: 0.3s;
         font-size: 17px;
 
         color: $text_basic_color;
+        text-align: left;
         text-shadow: $text_basic_shadow;
         border-top: 1.5px solid darkgray;
         border-bottom: 1.5px solid darkgray;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
 
         &.links1 {
             margin-top: 20px;
@@ -68,6 +194,7 @@ header {
             text-shadow: 0 0 5px black, 0 0 5px black;
         }
     }
+
 }
 
 
@@ -93,4 +220,21 @@ header {
         margin-left: 2%;
     }
 
+}
+
+
+
+
+@keyframes arrow {
+    0% {
+        transform: translateY(-5px)
+    }
+
+    50% {
+        transform: translateY(5px)
+    }
+
+    100% {
+        transform: translateY(-5px)
+    }
 }
